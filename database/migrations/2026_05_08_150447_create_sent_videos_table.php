@@ -25,6 +25,11 @@ return new class extends Migration
             $table->timestamp('published_at')->nullable();
             $table->timestamp('sent_at')->nullable();
 
+            $table->unique(
+                ['youtube_channel_id', 'video_id'],
+                'channel_video_unique'
+            );
+            
             $table->timestamps();
         });
     }
